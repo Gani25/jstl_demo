@@ -31,6 +31,15 @@
 					<th scope="col">Name</th>
 					<th scope="col">Gender</th>
 					<th scope="col">Marks</th>
+					<th scope="col">Result</th>
+					<!-- 
+					Grade Criteria
+					marks between 100 to 85 -> A
+					marks between 84 to 70 -> B
+					marks between 69 to 55 -> C
+					marks between 54 to 35 -> D 
+					marks below 35 -> Fail 
+					 -->
 				</tr>
 			</thead>
 			<tbody>
@@ -40,6 +49,23 @@
 					<td>${tempStudent.name }</td>
 					<td>${tempStudent.gender }</td>
 					<td>${tempStudent.marks }</td>
+					<td>
+						<c:if test="${tempStudent.marks>=85 && tempStudent.marks<=100 }">
+						<span style="color:#03fc41;">A</span>
+						</c:if>
+						<c:if test="${tempStudent.marks>=70 && tempStudent.marks<=84}">
+						<span style="color:#6ffc7d;">B</span>
+						</c:if>
+						<c:if test="${tempStudent.marks>=55 && tempStudent.marks<=69}">
+						<span style="color:#9efc05;">C</span>
+						</c:if>
+						<c:if test="${tempStudent.marks>=35 && tempStudent.marks<=54}">
+						<span style="color:#fce005;">D</span>
+						</c:if>
+						<c:if test="${tempStudent.marks<=34}">
+						<span style="color:#fc0505;">FAIL</span>
+						</c:if>
+					</td>
 				</tr>
 			
 			</c:forEach>
